@@ -47,7 +47,7 @@ body {
     text-align: left;
   }
   
-  input,
+/*   input,
   textarea {
     box-sizing: border-box;
     border: none;
@@ -55,7 +55,7 @@ body {
     padding: 0.8em 0em;
     background-color: transparent;
     width: 100%;
-  }
+  } */
   
   input::placeholder,
   textarea::placeholder {
@@ -155,11 +155,16 @@ h1:before {
   background-color: #c3d2e7;
 }
 
-a.btn.btn-outline-secondary {
+a.btn.btn-outline-light {
   width: max-content !important;
   margin-bottom: 20px !important;
+  color: #fff !important;
 }
 
+a.btn.btn-outline-light:hover {
+  color: #4569b2 !important;
+}
+rgb(255, 255, 255)rgb(81, 51, 233)
 @media (min-width: 1200px){
 .container, .container-lg, .container-md, .container-sm, .container-xl {
     max-width: 1315px;

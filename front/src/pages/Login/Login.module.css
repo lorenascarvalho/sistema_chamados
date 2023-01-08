@@ -1,3 +1,9 @@
+.bodyLogin{
+  background-image: url(../../assets/background-navbar.jpg);
+  background-position: top left;
+  background-size: cover;
+}
+
 .login {
     text-align: center;
   }
@@ -9,6 +15,8 @@
   .brand {
     font-size: 2.2em;
     padding-top: 50px;
+    text-align: center;
+    color: #fff !important;
   }
   
   .brand span {
@@ -19,7 +27,6 @@
   label {
     display: inline-block;
     width: 50%;
-    margin: 10px 0px;
 }
 
 h4{
@@ -28,7 +35,22 @@ h4{
     margin: 40px 0px !important;
 }
 
-a.btn.btn-outline-secondary {
+a.btn.btn-outline-light {
   width: max-content !important;
   margin-bottom: 20px !important;
+}
+
+.boxLogin {
+  width: 50%;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 40px 31px;
+  top: 50px;
+  position: relative;
+}
+
+input.paddingInput{
+  padding: 20px 0px !important;
 }

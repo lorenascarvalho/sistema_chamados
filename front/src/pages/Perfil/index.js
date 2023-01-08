@@ -10,10 +10,10 @@ import { toast } from 'react-toastify';
 import './Perfil.module.css';
 
 export default function Profile() {
-  
+
   const { user, logOut } = useUserAuth();
 
-  const [nome, setNome]   = useState();
+  const [nome, setNome] = useState();
   const [email, setEmail] = useState();
 
 
@@ -23,33 +23,33 @@ export default function Profile() {
 
     setEmail(user.email);
     fetchUsuario(user.uid);
-    
+
   }, []);
 
   async function fetchUsuario(uid) {
     api.get(`/usuarios/${uid}`)
       .then(response => {
-        
+
         setNome(response.data.nome);
 
-       
+
 
       });
   }
 
 
 
-   const handleSave = async (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
     formData.append('uid', user.uid);
     formData.append('nome', nome);
 
     api.put(`/usuarios/${user.uid}`, formData)
-      .then(_ =>  {
+      .then(_ => {
         toast('Usuário atualizado com sucesso!');
-        
+
       })
       .catch(_ => toast('Erro ao atualizar o usuário!'));
   }
@@ -60,14 +60,14 @@ export default function Profile() {
       localStorage.clear();
       await logOut();
       navigate('/');
-    } catch(error) {
+    } catch (error) {
       toast('Ocorreu um erro ao tentar deslogar!');
     }
   }
 
-  return(
+  return (
     <div>
-      <Header/>
+      <Header />
 
       <div className="container">
         <Title nome="Meu perfil">
@@ -76,27 +76,30 @@ export default function Profile() {
 
 
         <div className="container">
-          <form onSubmit={ (e) => handleSave(e) } className="form-profile">
-          
+          <form onSubmit={(e) => handleSave(e)} className="form-profile">
 
-            <label>Nome</label>
-            <input type="text" value={ nome } onChange={ (e) => setNome(e.target.value) } />
-
-            <label>Email</label>
-            <input type="text" value={ email } disabled={ true } /> 
-
-            <button className="btn btn-success mt-5" type="submit">Salvar</button>       
+            <div className="row">
+              <div className="col-md-6">
+                <label>Nome</label>
+                <input className="form-control" type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
+              </div>
+              <div className="col-md-6">
+                <label>Email</label>
+                <input className="form-control" type="text" value={email} disabled={true} />
+              </div>
+            </div>
+            <button className="btn btn-success mt-5" type="submit">Salvar</button>
           </form>
         </div>
 
         <div className="container mt-5">
-            <button className="btn btn-danger" onClick={ handleLogout }>
-               Sair
-            </button>
+          <button className="btn btn-danger" onClick={handleLogout}>
+            Sair
+          </button>
         </div>
 
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

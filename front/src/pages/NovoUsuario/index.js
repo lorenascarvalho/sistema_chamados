@@ -63,41 +63,42 @@ export default function NovoUsuario() {
   }
 
   return (
+    <body className={styles.bodyLogin}>
     <div className={styles.novousuario}>
       <div className={styles.brand}>Sistema de <span>Chamados</span></div>
 
-
-      <h4>Realize o seu cadastro</h4>
-
-      <form>
+      <form className={styles.boxLogin}>
         <div className='containerLogin'>
+          <div class="alert alert-primary mb-3 mt-3" role="alert">
+            Realize aqui o seu cadastro:
+          </div>
           <div>
-            <label>
+           
               <span>Nome:</span>
-              <input type="text" placeholder="Seu nome" ref={nome} />
-            </label>
+              <input className="form-control" type="text" placeholder="Seu nome" ref={nome} />
+           
           </div>
-          <div>
-            <label>
+          <div className='mt-3'>
+          
               <span>E-mail:</span>
-              <input type="text" placeholder="email@email.com" ref={email} />
-            </label>
+              <input className="form-control" type="text" placeholder="email@email.com" ref={email} />
+           
           </div>
-          <div>
-            <label>
+          <div className='mt-3'>
+           
               <span>Senha:</span>
-              <input type="password" placeholder="*****" ref={senha} />
-            </label>
+              <input className="form-control" type="password" placeholder="*****" ref={senha} />
+          
           </div>
-          <button className='btn btn-success mt-4 mb-5' type="submit" onClick={handleSubmit}>Cadastrar</button>
+          <button className='btn btn-success mt-4 mb-2' type="submit" onClick={handleSubmit}>Cadastrar</button>
           <p style={{ display: error ? "block" : "none" }}>{error}</p>
         </div>
       </form>
 
-      <Link to="/" className='btn btn-outline-secondary'>Já possui uma conta? Entre aqui!</Link>
+      <Link to="/" className='btn btn-outline-light' style={{ position: "relative", top: "70px" }}>Já possui uma conta? Entre aqui!</Link>
 
     </div>
-
+    </body>
 
   );
 }

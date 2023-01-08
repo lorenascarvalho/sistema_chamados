@@ -71,15 +71,15 @@ function EditCostumer({ setOpenModal, clienteId, user }) {
           <form>
             <div className='col-md-12'>
               <label>Nome</label>
-              <input ref={nome} placeholder="Digite o Nome Fantasia" type="text" />
+              <input className="form-control" ref={nome} placeholder="Digite o Nome Fantasia" type="text" />
             </div>
-            <div className='col-md-12'>
+            <div className='col-md-12 mt-2'>
               <label>CNPJ</label>
-              <input ref={cnpj} placeholder="Digite o CNPJ" type="text" />
+              <input className="form-control" ref={cnpj} placeholder="Digite o CNPJ" type="text" />
             </div>
-            <div className='col-md-12'>
+            <div className='col-md-12 mt-2'>
               <label>Endereço</label>
-              <input ref={endereco} placeholder="Digite o seu Endereço" type="text" />
+              <input className="form-control" ref={endereco} placeholder="Digite o seu Endereço" type="text" />
             </div>
           </form>
         </div>
