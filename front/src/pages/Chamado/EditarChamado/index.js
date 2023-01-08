@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import api from '../../../services/api';
-import './modal.css';
+import styles from './Modal.module.css';
 
 export default function EditarChamado({ setOpenModal, chamadoId, user }) {
 
-  const [clientes, setClientes]               = useState([]);
+  const [clientes, setClientes] = useState([]);
   const [loadingClientes, setLoadingClientes] = useState(true);
 
-  const [idCliente, setIdCliente]     = useState();
-  const [assunto, setAssunto]         = useState();
-  const [status, setStatus]           = useState();
+  const [idCliente, setIdCliente] = useState();
+  const [assunto, setAssunto] = useState();
+  const [status, setStatus] = useState();
 
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
       .then(response => {
         setIdCliente(response.data.cliente.id);
         setAssunto(response.data.assunto);
-        setStatus(response.data.status);     
+        setStatus(response.data.status);
       });
   }
   async function loadClientes() {
@@ -42,7 +42,7 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
     setOpenModal(false);
   }
 
-  async function updateChamado () {
+  async function updateChamado() {
     let response;
 
     try {
@@ -51,98 +51,108 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
         assunto: assunto,
         status: status,
       });
-      
+
     } catch (error) {
       toast('Erro ao atualizar o chamado!');
     }
 
-    if(response.data) {
+    if (response.data) {
       toast('Chamado atualizado com sucesso!');
     }
   }
 
   return (
-    <div className="modalBackground-edit-chamado">
-      <div className="modalContainer-edit-chamado">
-        <div className="titleCloseBtn-edit-chamado">
-          <button onClick={ () => setOpenModal(false) }>
+    <div  className={styles.modalBackground}>
+      <div className={styles.modalContainer}>
+        <div className={styles.titleCloseBtnFechar}>
+          <button onClick={() => setOpenModal(false)}>
             X
           </button>
         </div>
-        <div className="title-edit-chamado">
-          <h1>Editar Chamado</h1>
+        <div>
+          <h1 style={{ position: "relative", top: "-20px" }}>Editar Chamado</h1>
         </div>
-        <div className="body-edit-chamado">
-          <label>Cliente</label>
-          {loadingClientes ?
-              <input type="text" value="Carregando..." />
-              : <select value={idCliente} onChange={(e) => setIdCliente(e.target.value)}>
+        <div>
+
+
+          <div className='row'>
+            <div className='col-md-6'>
+              <label>Cliente</label>
+              {loadingClientes ?
+                <input type="text" value="Carregando..." />
+                : <select className='form-select' value={idCliente} onChange={(e) => setIdCliente(e.target.value)}>
                   {clientes.map(item => {
-                      return (<option key={item.id} value={item.id}>{item.nome}</option>);
+                    return (<option key={item.id} value={item.id}>{item.nome}</option>);
                   })}
+                </select>
+              }
+            </div>
+            <div className='col-md-6'>
+              <label>Assunto</label>
+              <select className='form-select' value={assunto} onChange={(e) => setAssunto(e.target.value)}>
+                <option value="SUPORTE">Suporte</option>
+                <option value="FINANCEIRO">Financeiro</option>
+                <option value="RECLAMACAO">Reclamacao</option>
+                <option value="DESENVOLVIMENTO">Desenvolvimento</option>
               </select>
-          }
-
-          <label>Assunto</label>
-          <select value={assunto} onChange={(e) => setAssunto(e.target.value)}>
-              <option value="SUPORTE">Suporte</option>
-              <option value="FINANCEIRO">Financeiro</option>
-              <option value="RECLAMACAO">Reclamacao</option>
-              <option value="DESENVOLVIMENTO">Desenvolvimento</option>
-          </select>
-
-          <label>Status</label>
-          <div className="status-edit-chamado">
-              <input
-                  type="radio"
-                  name="radio"
-                  value="ABERTO"
-                  onChange={(e) => setStatus(e.target.value)}
-                  checked={status === "ABERTO"} />
-              <span>Em Aberto</span>
-
-              <input
-                  type="radio"
-                  name="radio"
-                  value="PENDENTE"
-                  onChange={(e) => setStatus(e.target.value)}
-                  checked={status === "PENDENTE"} />
-              <span>Pendente</span>
-
-              <input
-                  type="radio"
-                  name="radio"
-                  value="DESCONHECIDO"
-                  onChange={(e) => setStatus(e.target.value)}
-                  checked={status === "DESCONHECIDO"} />
-              <span>Desconhecido</span>
+            </div>
           </div>
+          <label>Status</label>
+          <div className={styles.containerCheckRadio}>
+            <div className="form-check">
+              <input className='form-check-input spacingTopNegativo' id="flexRadioDefault1"
+                type="radio"
+                name="radio"
+                value="ABERTO"
+                onChange={(e) => setStatus(e.target.value)}
+                checked={status === "ABERTO"} />
+              <label>Em Aberto</label>
+            </div>
+            <div className="form-check">
+              <input className='form-check-input' id="flexRadioDefault2"
+                type="radio"
+                name="radio"
+                value="PENDENTE"
+                onChange={(e) => setStatus(e.target.value)}
+                checked={status === "PENDENTE"} />
+              <label>Pendente</label>
+            </div>
+            <div className="form-check">
+              <input className='form-check-input' id="flexRadioDefault3"
+                type="radio"
+                name="radio"
+                value="DESCONHECIDO"
+                onChange={(e) => setStatus(e.target.value)}
+                checked={status === "DESCONHECIDO"} />
+              <label>Desconhecido</label>
+            </div>
 
-          <input
-                  type="radio"
-                  name="radio"
-                  value="SUSPENSO"
-                  onChange={(e) => setStatus(e.target.value)}
-                  checked={status === "SUSPENSO"} />
-              <span>Suspenso</span>
-
-          <input
-                  type="radio"
-                  name="radio"
-                  value="FECHADO"
-                  onChange={(e) => setStatus(e.target.value)}
-                  checked={status === "FECHADO"} />
-              <span>Fechado</span>
-          
-    
+            <div className="form-check">
+              <input className='form-check-input' id="flexRadioDefault4"
+                type="radio"
+                name="radio"
+                value="SUSPENSO"
+                onChange={(e) => setStatus(e.target.value)}
+                checked={status === "SUSPENSO"} />
+              <label>Suspenso</label>
+            </div>
+            <div className="form-check">
+              <input className='form-check-input' id="flexRadioDefault5"
+                type="radio"
+                name="radio"
+                value="FECHADO"
+                onChange={(e) => setStatus(e.target.value)}
+                checked={status === "FECHADO"} />
+              <label>Fechado</label>
+            </div>
+          </div>
         </div>
-        <div className="footer-edit-chamado">
-          <button onClick={ () => setOpenModal(false) } id="cancelBtn">
-            Cancelar
-          </button>
-          <button onClick={ handleSubmit }>Confirmar</button>
+        <div className='text-center mt-5'>
+          <button className='btn btn-success' onClick={handleSubmit}>Confirmar</button>
+
+          <button className='btn btn-danger' onClick={() => setOpenModal(false)} >Cancelar</button>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

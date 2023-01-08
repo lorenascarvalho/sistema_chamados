@@ -1,0 +1,17 @@
+input, textarea {
+
+    padding: 0em 0em !important;
+
+}
+
+
+.containerCheckRadio{
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+}
+
+.form-check-input[type=radio] {
+    margin-top: 13px !important;
+}

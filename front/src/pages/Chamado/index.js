@@ -65,7 +65,7 @@ export default function Chamado() {
         </Title>
         { chamados.length === 0 ? (
           <div className="">
-            <span>Nenhum chamado encontrado!</span>
+            <div style={{marginBottom: "50px", border: "1px solid rgb(0 0 0 / 9%)", borderRadius: "5px", display: "inline-block", padding: "8px 18px"}}>Nenhum chamado encontrado!</div>
             <Link to="/novochamado" className={styles.botaoNovoChamado}>
               <FiPlus size={25} color="#FFF" />
               Novo chamado
@@ -126,7 +126,7 @@ export default function Chamado() {
         )}
 
       </div>
-      <Footer />
+      <Footer style={{marginTop: "350px"}}/>
     </div>
   )
 }

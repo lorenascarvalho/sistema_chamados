@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { toast } from 'react-toastify';
 import api from '../../../services/api';
-import './modal.css';
+import styles from './Modal.module.css';
 
 
 function EditCostumer({ setOpenModal, clienteId, user }) {
@@ -54,9 +54,9 @@ function EditCostumer({ setOpenModal, clienteId, user }) {
   }
 
   return (
-    <div className="modalBackground-costumer">
-      <div className="modalContainer-costumer">
-        <div className="titleCloseBtn-costumer">
+    <div className={styles.modalBackground}>
+      <div className={styles.modalContainer}>
+        <div className={styles.titleCloseBtnFechar}>
           <button
             onClick={() => {
               setOpenModal(false);
@@ -65,19 +65,22 @@ function EditCostumer({ setOpenModal, clienteId, user }) {
             X
           </button>
         </div>
-        <div className="title-costumer">
-          <h1>Editar Cliente</h1>
-        </div>
-        <div className="body-costumer">
-          <form className="form-profile costumers">
-            <label>Nome</label>
-            <input ref={nome} placeholder="Digite o Nome Fantasia" type="text" />
 
-            <label>CNPJ</label>
-            <input ref={cnpj} placeholder="Digite o CNPJ" type="text" />
-
-            <label>Endereço</label>
-            <input ref={endereco} placeholder="Digite o seu Endereço" type="text" />
+        <h1>Editar Cliente</h1>
+        <div className='row'>
+          <form>
+            <div className='col-md-12'>
+              <label>Nome</label>
+              <input ref={nome} placeholder="Digite o Nome Fantasia" type="text" />
+            </div>
+            <div className='col-md-12'>
+              <label>CNPJ</label>
+              <input ref={cnpj} placeholder="Digite o CNPJ" type="text" />
+            </div>
+            <div className='col-md-12'>
+              <label>Endereço</label>
+              <input ref={endereco} placeholder="Digite o seu Endereço" type="text" />
+            </div>
           </form>
         </div>
         <div className="row text-center mt-5 mt-2">

@@ -5,7 +5,7 @@ import Footer from '../../../components/Footer';
 import Title from '../../../components/Title';
 import api from '../../../services/api';
 import { toast } from 'react-toastify';
-import './novo-chamado.css';
+import styles from './NovoChamado.module.css';
 
 export default function New() {
 
@@ -74,7 +74,7 @@ export default function New() {
                     </select>
 
                     <label>Status</label>
-                    <div className="containerCheckRadio">
+                    <div className={styles.containerCheckRadio}>
                         <div className="form-check">
                             <input className='form-check-input'
                                 id="flexRadioDefault1"
