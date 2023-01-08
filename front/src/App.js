@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import MyRoutes from './routes/MyRoutes'
+import Rotas from './routes/Rotas'
 import AuthProvider from './contexts/auth'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +9,7 @@ function App() {
     <AuthProvider>
       <ToastContainer autoClose={3000} />
       <BrowserRouter>
-        <MyRoutes />
+        <Rotas />
       </BrowserRouter>
     </AuthProvider>
   );
