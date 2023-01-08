@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import api from '../../../services/api';
-import './edit-chamado.css';
+import './modal.css';
 
 export default function EditarChamado({ setOpenModal, chamadoId, user }) {
 

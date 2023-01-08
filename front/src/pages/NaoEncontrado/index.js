@@ -1,14 +1,12 @@
-import sad from '../../assets/sad.png'
-import './notfound.css';
+import error from '../../assets/error-404.png';
+import './NaoEncontrado.module.css';
 
-export default function NotFound() {
+export default function NaoEncontrado() {
     return (
-        <div className='notfound-container'>
-            <div className='notfound-card'>
-                <h1 className='notfound-title'>Erro 404</h1>
-                <h2 className='notfound-subtitle'>Página não encontrada!</h2>
-                <img className='notfound-image' src={sad}/>
-            </div>
+        <div className='container text-center'>
+            <img className='iconError mt-5' src={error} />
+            <h2 className='mt-5'>Erro 404</h2>
+            <h3>Página não encontrada!</h3>
         </div>
     );
 }

@@ -61,7 +61,7 @@ export default function Login() {
       <div className={styles.brand}>Sistema de <span>Chamados</span></div>
 
 
-      <h4>Faça o login para poder utilizar o sistema</h4>
+      <h4>Faça o login para utilizar o sistema</h4>
 
       {/* <div className="login-area">
         <img src={logo} alt="Logo do Sistema" />
@@ -86,7 +86,7 @@ export default function Login() {
         </div>
       </form>
 
-      <Link to="/cadastro" className='btn btn-outline-secondary'>Criar uma conta...</Link>
+      <Link to="/cadastro" className='btn btn-outline-secondary'>Criar uma conta?</Link>
 
     </div>
 

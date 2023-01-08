@@ -1,4 +1,4 @@
-import './Chamado.module.css';
+import styles from './Chamado.module.css';
 import { useState, useEffect, useContext } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -63,22 +63,17 @@ export default function Chamado() {
       <div className="container">
         <Title nome="Atendimentos">
         </Title>
-
-
-
-       
-
         { chamados.length === 0 ? (
-          <div className="container">
-            <span>Nenhum chamado registrado...</span>
-            <Link to="/novochamado" className="btn btn-success mt-3 mb-5">
+          <div className="">
+            <span>Nenhum chamado encontrado!</span>
+            <Link to="/novochamado" className={styles.botaoNovoChamado}>
               <FiPlus size={25} color="#FFF" />
               Novo chamado
             </Link>
           </div>
           ) : (
           <>
-            <Link to="/novochamado" className="btn btn-success mt-3 mb-5">
+            <Link to="/novochamado" className={styles.botaoNovoChamado}>
               <FiPlus size={25} color="#FFF" />
               Novo chamado
             </Link>
@@ -117,7 +112,7 @@ export default function Chamado() {
                       <td data-label="#">
                         <button className="btnEditar"
                         onClick={ () => { editar(chamado.id) } }
-                          style={{backgroundColor: '#cc540e' }}
+                          style={{backgroundColor: '#ff9d23', border: 'none', padding: '5px 7px', borderRadius:"5px" }}
                         >
                           <FiEdit2 color="#FFF" size={17} />
                         </button>

@@ -6,8 +6,7 @@ import Title from '../../components/Title';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 import EditarCliente from './EditarCliente';
-import './costumers.css'
-import { formataStatus } from '../../utils/utils';
+//import { formataStatus } from '../../utils/utils';
 import { useUserAuth } from '../../contexts/auth';
 
 
@@ -104,7 +103,7 @@ export default function Cliente() {
           </div>
           <div className="row">
             <div className="col-md-12">
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-success mt-4" type="submit">
             Salvar
           </button>
           </div></div>
@@ -129,18 +128,18 @@ export default function Cliente() {
                       <td data-label="CNPJ">{cliente.cnpj}</td>
                       <td data-label="Endereço">{cliente.endereco}</td>
                       <td data-label="Cadastrado em">{cliente.dataCadastro}</td>
-                      <td data-label="#">
+                      <td data-label="Excluir/Editar">
                         <button
                           onClick={() => { excluir(cliente.id) }}
                           className="action"
-                          style={{ backgroundColor: '#3583f6' }}
+                          style={{ backgroundColor: '#18c1d3', border: 'none', padding: '5px 7px', borderRadius:"5px", marginRight: "5px" }}
                         >
                           <FiDelete color="#FFF" size={17} />
                         </button>
                         <button
                           onClick={() => { editar(cliente.id) }}
                           className="action"
-                          style={{ backgroundColor: '#F6a935' }}
+                          style={{ backgroundColor: '#ff9d23', border: 'none', padding: '5px 7px', borderRadius:"5px" }}
                         >
                           <FiEdit2 color="#FFF" size={17} />
                         </button>

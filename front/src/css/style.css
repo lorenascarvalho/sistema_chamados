@@ -1,5 +1,5 @@
 body {
-    background-color: #f6fcff;
+    background-color: #fbfbfb;
     padding: 0;
     margin: 0;
     font-family: "Montserrat", sans-serif !important;
@@ -124,8 +124,23 @@ body {
 
 h1 {
   font-family: 'Montserrat';
-    font-weight: 700;
-    padding: 35px 0px 20px 0px;
+  border-bottom: solid 1px #dfdfdf;
+  font-size: 1.7rem !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  margin-top: 40px !important;
+  margin-bottom: 35px !important;
+  padding-bottom: 5px !important;
+}
+h1:before {
+  content: " ";
+    width: 60px;
+    height: 3px;
+    background-color: #00e7ff;
+    border-radius: 30px;
+    position: absolute;
+    display: inline-block;
+    margin-top: 37px;
 }
 
 /* h1:before{
@@ -138,4 +153,15 @@ h1 {
 .table>thead {
   vertical-align: bottom;
   background-color: #c3d2e7;
+}
+
+a.btn.btn-outline-secondary {
+  width: max-content !important;
+  margin-bottom: 20px !important;
+}
+
+@media (min-width: 1200px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1315px;
+}
 }

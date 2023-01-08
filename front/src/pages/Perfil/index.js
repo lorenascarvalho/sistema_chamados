@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Title from '../../components/Title';
 import { FiSettings, FiUpload } from 'react-icons/fi';
 import { useUserAuth } from '../../contexts/auth';
@@ -84,17 +85,18 @@ export default function Profile() {
             <label>Email</label>
             <input type="text" value={ email } disabled={ true } /> 
 
-            <button type="submit">Salvar</button>       
+            <button className="btn btn-success mt-5" type="submit">Salvar</button>       
           </form>
         </div>
 
-        <div className="container">
-            <button className="logout-btn" onClick={ handleLogout }>
+        <div className="container mt-5">
+            <button className="btn btn-danger" onClick={ handleLogout }>
                Sair
             </button>
         </div>
 
       </div>
+      <Footer/>
     </div>
   )
 }
