@@ -62,7 +62,7 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
   }
 
   return (
-    <div  className={styles.modalBackground}>
+    <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
         <div className={styles.titleCloseBtnFechar}>
           <button onClick={() => setOpenModal(false)}>
@@ -106,7 +106,7 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
                 value="ABERTO"
                 onChange={(e) => setStatus(e.target.value)}
                 checked={status === "ABERTO"} />
-              <label>Em Aberto</label>
+              <span>Em Aberto</span>
             </div>
             <div className="form-check">
               <input className='form-check-input' id="flexRadioDefault2"
@@ -115,7 +115,7 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
                 value="PENDENTE"
                 onChange={(e) => setStatus(e.target.value)}
                 checked={status === "PENDENTE"} />
-              <label>Pendente</label>
+              <span>Pendente</span>
             </div>
             <div className="form-check">
               <input className='form-check-input' id="flexRadioDefault3"
@@ -124,7 +124,7 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
                 value="DESCONHECIDO"
                 onChange={(e) => setStatus(e.target.value)}
                 checked={status === "DESCONHECIDO"} />
-              <label>Desconhecido</label>
+              <span>Desconhecido</span>
             </div>
 
             <div className="form-check">
@@ -134,7 +134,7 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
                 value="SUSPENSO"
                 onChange={(e) => setStatus(e.target.value)}
                 checked={status === "SUSPENSO"} />
-              <label>Suspenso</label>
+              <span>Suspenso</span>
             </div>
             <div className="form-check">
               <input className='form-check-input' id="flexRadioDefault5"
@@ -143,16 +143,19 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
                 value="FECHADO"
                 onChange={(e) => setStatus(e.target.value)}
                 checked={status === "FECHADO"} />
-              <label>Fechado</label>
+              <span>Fechado</span>
             </div>
           </div>
         </div>
-        <div className='text-center mt-5'>
-          <button className='btn btn-success' onClick={handleSubmit}>Confirmar</button>
-
-          <button className='btn btn-danger' onClick={() => setOpenModal(false)} >Cancelar</button>
+        <div className='row mt-5'>
+          <div className='col-md-2'>
+            <button className='btn btn-success' onClick={handleSubmit}>Confirmar</button>
+          </div>
+          <div className='col-md-2'>
+            <button className='btn btn-danger' onClick={() => setOpenModal(false)} >Cancelar</button>
+          </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }

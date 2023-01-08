@@ -83,7 +83,7 @@ export default function New() {
                                 value="ABERTO"
                                 onChange={(e) => setStatus(e.target.value)}
                                 checked={status === "ABERTO"} />
-                            <label class="form-check-label" for="flexRadioDefault1">Em Aberto</label>
+                            <span class="form-check-label" for="flexRadioDefault1">Em Aberto</span>
                         </div>
                         <div className="form-check">
                             <input className='form-check-input'
@@ -93,7 +93,7 @@ export default function New() {
                                 value="PENDENTE"
                                 onChange={(e) => setStatus(e.target.value)}
                                 checked={status === "PENDENTE"} />
-                            <label class="form-check-label" for="flexRadioDefault2">Pendente</label>
+                            <span class="form-check-label" for="flexRadioDefault2">Pendente</span>
                         </div>
                         <div className="form-check">
                             <input className='form-check-input'
@@ -103,7 +103,7 @@ export default function New() {
                                 value="SUSPENSO"
                                 onChange={(e) => setStatus(e.target.value)}
                                 checked={status === "SUSPENSO"} />
-                            <label class="form-check-label" for="flexRadioDefault3">Suspenso</label>
+                            <span class="form-check-label" for="flexRadioDefault3">Suspenso</span>
                         </div>
                         <div className="form-check">
                             <input className='form-check-input'
@@ -113,7 +113,7 @@ export default function New() {
                                 value="DESCONHECIDO"
                                 onChange={(e) => setStatus(e.target.value)}
                                 checked={status === "DESCONHECIDO"} />
-                            <label class="form-check-label" for="flexRadioDefault4">Desconhecido</label>
+                            <span class="form-check-label" for="flexRadioDefault4">Desconhecido</span>
                         </div>
                         <div className="form-check">
                             <input className='form-check-input'
@@ -123,7 +123,7 @@ export default function New() {
                                 value="FECHADO"
                                 onChange={(e) => setStatus(e.target.value)}
                                 checked={status === "FECHADO"} />
-                            <label class="form-check-label" for="flexRadioDefault5">Fechado</label>
+                            <span class="form-check-label" for="flexRadioDefault5">Fechado</span>
                         </div>
                     </div>
 

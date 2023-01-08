@@ -83,9 +83,11 @@ function EditCostumer({ setOpenModal, clienteId, user }) {
             </div>
           </form>
         </div>
-        <div className="row text-center mt-5 mt-2">
-          <div className="col-md-12">
+        <div className="row mt-5 mt-2">
+          <div className="col-md-4">
             <button className='btn btn-success' onClick={handleSubmit}>Confirmar</button>
+          </div>
+          <div className="col-md-4">
             <button className='btn btn-danger' onClick={() => { setOpenModal(false) }} id="cancelBtn">
               Cancelar
             </button>
