@@ -1,3 +1,34 @@
+
+
+html, body, #root{
+  height: 100%;
+}
+
+body{
+  font-family: 'Montserrat';
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus{
+  outline: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+button{
+  cursor: pointer;
+}
 body {
     background-color: #fbfbfb;
     padding: 0;
@@ -164,7 +195,7 @@ a.btn.btn-outline-light {
 a.btn.btn-outline-light:hover {
   color: #4569b2 !important;
 }
-rgb(255, 255, 255)rgb(81, 51, 233)
+
 @media (min-width: 1200px){
 .container, .container-lg, .container-md, .container-sm, .container-xl {
     max-width: 1315px;

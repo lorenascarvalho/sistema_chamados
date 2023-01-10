@@ -57,21 +57,21 @@ export default function Login() {
 
   return (
     <body className={styles.bodyLogin}>
-
-
       <div>
         <div className={styles.brand}>Sistema de <span>Chamados</span></div>
         <form className={styles.boxLogin}>
           <div class="alert alert-primary" role="alert">
             Acesse aqui com o seu login e senha:
           </div>
-          <input className="form-control mt-4" type="text" placeholder="email@email.com" ref={email} />
-          <input className="form-control mt-3" type="password" placeholder="*****" ref={senha} />
+          <span>Nome:</span>
+          <input className="form-control mt-1" type="text" placeholder="email@email.com" ref={email} />
+          <div className='mt-3'>Senha:</div>
+          <input className="form-control mt-1" type="password" placeholder="*****" ref={senha} />
           <button className='btn btn-success mt-5' type="submit" onClick={handleSubmit}>Acessar</button>
           <p style={{ display: error ? "block" : "none" }}>{error}</p>
         </form>
       </div>
-      <div className='text-center mt-5' style={{ position: "relative", top: "70px" }}>
+      <div className='text-center mt-5' style={{ position: "relative", top: "40px" }}>
         <Link to="/cadastro" className='btn btn-outline-light'>Criar uma conta!</Link>
       </div>
     </body>

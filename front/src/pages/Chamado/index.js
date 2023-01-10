@@ -20,7 +20,6 @@ export default function Chamado() {
   const [chamadoId, setChamadoId]      = useState();
 
   useEffect(() => { 
-    
     getChamados();
     loadChamados();
   }, [ chamados ]);
@@ -46,8 +45,6 @@ export default function Chamado() {
       .get('/chamados')
       .then(response => setChamados(response.data));
   }
-  
- 
 
   const editar = (id) => {
     setOpenEditar(true);
@@ -56,7 +53,6 @@ export default function Chamado() {
 
   return(
     <div>
-      {/* { openDetalhe && <DetalheChamado setOpenModal={ setOpenDetalhar } chamadoId={ chamadoId } user={ user }/>} */}
       { openEditar  && <EditarChamado  setOpenModal={ setOpenEditar  } chamadoId={ chamadoId } user={ user }/>}
       <Header/>
 
@@ -67,18 +63,18 @@ export default function Chamado() {
           <div className="">
             <div style={{marginBottom: "50px", border: "1px solid rgb(0 0 0 / 9%)", borderRadius: "5px", display: "inline-block", padding: "8px 18px"}}>Nenhum chamado encontrado!</div>
             <Link to="/novochamado" className={styles.botaoNovoChamado}>
-              <FiPlus size={25} color="#FFF" />
+              <FiPlus size={21} color="#FFF" />
               Novo chamado
             </Link>
           </div>
           ) : (
           <>
             <Link to="/novochamado" className={styles.botaoNovoChamado}>
-              <FiPlus size={25} color="#FFF" />
+              <FiPlus size={21} color="#FFF" />
               Novo chamado
             </Link>
 
-            <table className='table'>
+            <table className='table mt-5'>
               <thead>
                 <tr>
                   <th scope="col">Cliente</th>
@@ -99,10 +95,16 @@ export default function Chamado() {
                           className="badge"
                           style={
                             chamado.status === 'ABERTO' ? 
-                            { backgroundColor: '#bf2d17' } : 
-                            chamado.status === 'ANDAMENTO' ? 
-                            { backgroundColor: '#c2b43c' } : 
-                            { backgroundColor: '#5cb85c'} 
+                            { backgroundColor: '#F32C0E' } : 
+                            chamado.status === 'PENDENTE' ? 
+                            { backgroundColor: '#F3620E' } : 
+                            chamado.status === 'DESCONHECIDO' ? 
+                            { backgroundColor: '#0C38E9'} :
+                            chamado.status === 'SUSPENSO' ? 
+                            { backgroundColor: '#DAE90C'} :
+                            chamado.status === 'FECHADO' ? 
+                            { backgroundColor: '#2CAC4A'} :
+                            { backgroundColor: '#2CAC4A'}
                           }
                         >
                           { formataStatus(chamado.status) }

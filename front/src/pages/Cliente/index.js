@@ -6,7 +6,6 @@ import Title from '../../components/Title';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 import EditarCliente from './EditarCliente';
-//import { formataStatus } from '../../utils/utils';
 import { useUserAuth } from '../../contexts/auth';
 
 

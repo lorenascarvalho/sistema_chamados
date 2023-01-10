@@ -1,33 +1,25 @@
+import styles from './Modal.module.css';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import api from '../../../services/api';
-import styles from './Modal.module.css';
+
+
 
 export default function EditarChamado({ setOpenModal, chamadoId, user }) {
 
   const [clientes, setClientes] = useState([]);
   const [loadingClientes, setLoadingClientes] = useState(true);
-
   const [idCliente, setIdCliente] = useState();
   const [assunto, setAssunto] = useState();
   const [status, setStatus] = useState();
 
 
   useEffect(() => {
-    loadChamado();
-    loadClientes();
+    carregarChamado();
+    carregarClientes();
   }, []);
 
-  async function loadChamado() {
-    api
-      .get(`/chamados/${chamadoId}`)
-      .then(response => {
-        setIdCliente(response.data.cliente.id);
-        setAssunto(response.data.assunto);
-        setStatus(response.data.status);
-      });
-  }
-  async function loadClientes() {
+  async function carregarClientes() {
     api
       .get('/clientes')
       .then(response => {
@@ -36,13 +28,24 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
       });
   }
 
+  async function carregarChamado() {
+    api
+      .get(`/chamados/${chamadoId}`)
+      .then(response => {
+        setIdCliente(response.data.cliente.id);
+        setAssunto(response.data.assunto);
+        setStatus(response.data.status);
+      });
+  }
+
+
   async function handleSubmit(e) {
     e.preventDefault();
-    updateChamado();
+    atualizarChamado();
     setOpenModal(false);
   }
 
-  async function updateChamado() {
+  async function atualizarChamado() {
     let response;
 
     try {
@@ -65,9 +68,7 @@ export default function EditarChamado({ setOpenModal, chamadoId, user }) {
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
         <div className={styles.titleCloseBtnFechar}>
-          <button onClick={() => setOpenModal(false)}>
-            X
-          </button>
+          <button onClick={() => setOpenModal(false)}> X </button>
         </div>
         <div>
           <h1 style={{ position: "relative", top: "-20px" }}>Editar Chamado</h1>

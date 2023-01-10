@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <AuthProvider>
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={2300} />
       <BrowserRouter>
         <Rotas />
       </BrowserRouter>
